@@ -1,0 +1,55 @@
+some clean-ups
+usage should look like this:
+
+argv[0] root-path net-iface [port]
+
+implement daemonize function
+implement a tool to generate gophermap from a directory
+interact with syslog
+
+
+USAGE: argv[0] OPTIONS
+
+OPTIONS:
+-r [root-path]: define a root-path for server (default /var/gopher)
+-i [net-iface]: specify a network interface (the ip-address of this interface will be used, default:lo)
+-p [port]     : specify a port (default 70)
+-g [no-args]  : generate a gophermap from root-path (note that this will overwrite current gophermap)
+-v [no-args]  : be more verbose
+-q [no-args]  : be quite
+-c [no-args]  : chroot to root-path
+-d [no-args]  : daemonize
+static struct option long_options[] = {
+                {"root-path",   required_argument, 0, 'r'},
+                {"net-int",     required_argument, 0, 'i'},
+                {"port",        required_argument, 0, 'p'},
+                {"generate",    no_argument,       0, 'g'},
+                {"verbose",     no_argument,       0, 'v'},
+                {"quiet",       no_argument,       0, 'q'},
+                {"chroot",      no_argument,       0, 'c'},
+                {0,             0,                 0,  0}
+};
+
+
+
+UPDATE: COMMAND LINE ARGUMENTS ARE ALMOST DONE, ONLY LEFT 
+IS IMPLEMENT GENERATE, VERBOSE, QUIET.
+and varoius clean-ups   WORKING ON IT
+and syslog              REMOVED
+and daemonize           DONE
+
+
+	static struct option long_options[] = {
+                {"root-path",   required_argument, 0, 'r'},
+                {"net-int",     required_argument, 0, 'i'},
+                {"port",        required_argument, 0, 'p'},
+                {"hostname",    required_argument, 0, 'n'},
+                {"generate",    no_argument,       0, 'g'},
+                {"verbose",     no_argument,       0, 'v'},
+                {"quiet",       no_argument,       0, 'q'},
+                {"chroot",      no_argument,       0, 'c'},
+                {"daemon",      no_argument,       0, 'd'},
+                {"help",        no_argument,       0, 'h'},
+                {0,             0,                 0,  0}
+        };
+
