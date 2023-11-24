@@ -142,7 +142,7 @@ handle_connection(char *buffer, int cfd) {
 main (int argc, char **argv) 
 {
 	int sfd, cfd, opt, option_index = 0;
-	bool verbose, quiet, chroot_r, gen_gm;
+	bool verbose = false, quiet = false, chroot_r = false, gen_gm = false;
 	struct sockaddr_storage claddr;
 	char buffer[BUFFER_SIZE];
 	socklen_t claddr_len;
